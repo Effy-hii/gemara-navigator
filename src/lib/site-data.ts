@@ -1,4 +1,8 @@
 import logo from "@/assets/logo.jpg";
+import gameDuel from "@/assets/game-duel.jpg";
+import gameEscape from "@/assets/game-escape.jpg";
+import gameMishnah from "@/assets/game-mishnah.jpg";
+import gameRashi from "@/assets/game-rashi.png";
 
 // TODO: replace temporary JPG logo with final transparent PNG or SVG asset.
 export const brandAssets = {
@@ -32,7 +36,7 @@ export const games = [
       "מסע חידות כיתתי בעקבות סוגיית כיבוד אב ואם במסכת קידושין.",
     tags: ["סיכום סוגיה", "פתרון חידות", "למידה כיתתית"],
     link: "https://effy-hii.github.io/escapecheckgemara/",
-    // TODO: add real screenshot for this game
+    image: gameEscape,
   },
   {
     title: "דו־קרב מילות מפתח בארמית",
@@ -40,7 +44,7 @@ export const games = [
       "משחק תחרותי בין קבוצות לתרגול מונחי דיון ושלבי הסוגיה.",
     tags: ["מילות מפתח", "מבנה הסוגיה", "תחרות קבוצתית"],
     link: "https://effy-hii.github.io/trivaiagmara/",
-    // TODO: add real screenshot for this game
+    image: gameDuel,
   },
   {
     title: "מסדרים את המשנה",
@@ -48,7 +52,7 @@ export const games = [
       "משחק מיון אינטראקטיבי להיכרות עם מסכתות הש״ס וששת סדרי המשנה.",
     tags: ["בקיאות בסיסית", "ששת הסדרים", "משחק מיון"],
     link: "https://effy-hii.github.io/masechetmatch/",
-    // TODO: add real screenshot for this game
+    image: gameMishnah,
   },
   {
     title: "בלש רש״י",
@@ -56,6 +60,6 @@ export const games = [
       "משחק מדורג לפיתוח שליטה בקריאת כתב רש״י ולחיזוק ביטחון הלומדים.",
     tags: ["כתב רש״י", "שטף קריאה", "תרגול מדורג"],
     link: "https://effy-hii.github.io/ktavrashi/",
-    // TODO: add real screenshot for this game
+    image: gameRashi,
   },
 ];

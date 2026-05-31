@@ -1,4 +1,4 @@
-import { ExternalLink, MessageCircle, Gamepad2, Globe } from "lucide-react";
+import { ExternalLink, MessageCircle, Globe } from "lucide-react";
 import { Reveal, SectionHeading } from "./primitives";
 import { games, contact } from "@/lib/site-data";
 
@@ -23,9 +23,14 @@ export function GamesLibrary() {
                 rel="noopener noreferrer"
                 className="group flex h-full flex-col overflow-hidden rounded-3xl border border-brand-border bg-white shadow-card transition-all hover:-translate-y-1 hover:shadow-soft"
               >
-                {/* TODO: replace gradient placeholder with real game screenshot */}
-                <div className="relative flex h-40 items-center justify-center gradient-brand">
-                  <Gamepad2 className="h-12 w-12 text-white/70" />
+                <div className="relative h-44 overflow-hidden bg-sky-soft">
+                  <img
+                    src={g.image}
+                    alt={g.title}
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy-deep/25 via-transparent to-transparent" />
                 </div>
                 <div className="flex flex-1 flex-col p-6">
                   <h3 className="text-lg font-bold text-navy-deep">{g.title}</h3>
