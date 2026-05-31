@@ -1,4 +1,5 @@
 import logo from "@/assets/logo.jpg";
+import heroStudents from "@/assets/hero-students.png";
 import gameDuel from "@/assets/game-duel.jpg";
 import gameEscape from "@/assets/game-escape.jpg";
 import gameMishnah from "@/assets/game-mishnah.jpg";
@@ -7,7 +8,7 @@ import gameRashi from "@/assets/game-rashi.png";
 // TODO: replace temporary JPG logo with final transparent PNG or SVG asset.
 export const brandAssets = {
   logo,
-  heroImage: "",
+  heroImage: heroStudents,
   profileImage: "",
 };
 

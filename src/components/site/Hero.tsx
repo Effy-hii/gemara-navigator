@@ -1,5 +1,5 @@
 import { MessageCircle, Phone, Target, BookOpen, Sparkles } from "lucide-react";
-import { contact } from "@/lib/site-data";
+import { brandAssets, contact } from "@/lib/site-data";
 
 const pillars = [
   { icon: Target, label: "תכנון מדויק" },
@@ -11,12 +11,16 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative overflow-hidden gradient-brand pt-28 pb-20 md:pt-36 md:pb-28"
+      className="relative min-h-[720px] overflow-hidden bg-navy-deep pt-28 pb-20 md:pt-36 md:pb-28"
     >
-      {/* Soft abstract shapes */}
-      <div className="pointer-events-none absolute -top-24 -left-24 h-72 w-72 rounded-full bg-white/5" />
-      <div className="pointer-events-none absolute top-20 -right-20 h-80 w-80 rounded-full bg-teal/10" />
-      <div className="pointer-events-none absolute bottom-0 left-1/3 h-56 w-56 rounded-full bg-white/5" />
+      <img
+        src={brandAssets.heroImage}
+        alt=""
+        aria-hidden="true"
+        className="absolute inset-0 h-full w-full object-cover object-center"
+      />
+      <div className="absolute inset-0 bg-navy-deep/70" />
+      <div className="absolute inset-0 bg-gradient-to-b from-navy-deep/65 via-navy/55 to-navy-deep/85" />
 
       <div className="relative mx-auto max-w-4xl px-4 text-center md:px-6">
         <span className="inline-block rounded-full border border-white/25 bg-white/10 px-4 py-1.5 text-sm font-medium text-sky">
