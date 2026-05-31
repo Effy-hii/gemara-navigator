@@ -1,29 +1,57 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Header } from "@/components/site/Header";
+import { Hero } from "@/components/site/Hero";
+import {
+  Intro,
+  ThreeStage,
+  Planning,
+  Teaching,
+  Engagement,
+} from "@/components/site/ContentSections";
+import { GamesLibrary, Tools } from "@/components/site/ShowcaseSections";
+import {
+  Services,
+  About,
+  FinalCTA,
+  Footer,
+} from "@/components/site/ClosingSections";
 
+const TITLE = "לימוד גמרא יכול להיראות אחרת | הרב אפרים שרם";
+const DESCRIPTION =
+  "ליווי והדרכה לישיבות תיכוניות בבניית לימוד גמרא ברור, עמוק ומחבר: תוכניות לימודים, הכשרת מורים, דפי עבודה, משחוק וכלים דיגיטליים.";
+
+// TODO: add og:image when final brand image is available.
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Your App" },
-      { name: "description", content: "Replace this with a one-sentence description of your app." },
-      { property: "og:title", content: "Your App" },
-      { property: "og:description", content: "Replace this with a one-sentence description of your app." },
+      { title: TITLE },
+      { name: "description", content: DESCRIPTION },
+      { property: "og:title", content: TITLE },
+      { property: "og:description", content: DESCRIPTION },
+      { property: "og:type", content: "website" },
     ],
   }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <>
+      <Header />
+      <main>
+        <Hero />
+        <Intro />
+        <ThreeStage />
+        <Planning />
+        <Teaching />
+        <Engagement />
+        <GamesLibrary />
+        <Tools />
+        <Services />
+        <About />
+        <FinalCTA />
+      </main>
+      <Footer />
+    </>
   );
 }

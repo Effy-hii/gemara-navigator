@@ -1,0 +1,286 @@
+import {
+  ListOrdered,
+  Layers,
+  PartyPopper,
+  Users,
+  Target,
+  Clock,
+  LineChart,
+  SplitSquareVertical,
+  Newspaper,
+  FileText,
+  CheckCircle2,
+  ArrowLeft,
+  Gamepad2,
+  Lightbulb,
+} from "lucide-react";
+import { Reveal, SectionHeading, Accordion } from "./primitives";
+
+const introCards = [
+  {
+    icon: ListOrdered,
+    title: "סדר",
+    text: "תוכנית ברורה, יעדים מדורגים והבנה מה נכון ללמד בכל שלב.",
+  },
+  {
+    icon: Layers,
+    title: "עומק",
+    text: "פירוק נכון של הסוגיה, דפי עבודה מדויקים והוראה שמכבדת את הטקסט ואת התלמיד.",
+  },
+  {
+    icon: PartyPopper,
+    title: "חוויה",
+    text: "מבצעים, יצירה, משחוק וכלים דיגיטליים שמעודדים חיבור ומוטיבציה.",
+  },
+];
+
+export function Intro() {
+  return (
+    <section className="bg-sky-soft py-16 md:py-24">
+      <div className="mx-auto max-w-6xl px-4 md:px-6">
+        <Reveal>
+          <SectionHeading
+            title="אפשר להפוך את לימוד הגמרא למסע של הצלחה"
+            center
+          />
+          <p className="mx-auto mt-5 max-w-3xl text-center text-base leading-relaxed text-muted-foreground md:text-lg">
+            תלמידים רבים מגיעים ללימוד הגמרא עם קושי אמיתי: השפה אינה מוכרת, המבנה
+            מורכב ולעיתים לא ברור כיצד הדברים קשורים לעולם שלהם. כאשר בונים את
+            הלמידה בצורה מדורגת, משלבים עבודה עצמית, יוצרים המחשות ומכניסים חוויה
+            — התלמידים יכולים להצליח, להבין ולהרגיש שייכים לעולם הגמרא.
+          </p>
+        </Reveal>
+
+        <div className="mt-12 grid gap-6 md:grid-cols-3">
+          {introCards.map((c, i) => (
+            <Reveal key={c.title} delay={i * 100}>
+              <div className="h-full rounded-3xl border border-brand-border bg-white p-7 shadow-card transition-shadow hover:shadow-soft">
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-sky text-navy">
+                  <c.icon className="h-6 w-6" />
+                </div>
+                <h3 className="mt-5 text-xl font-bold text-navy-deep">
+                  {c.title}
+                </h3>
+                <p className="mt-3 leading-relaxed text-muted-foreground">
+                  {c.text}
+                </p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+const stages = [
+  {
+    num: "01",
+    title: "מתכננים",
+    subtitle: "תוכנית רב־שנתית ושנתית",
+    text: "מגדירים יחד את נקודת הפתיחה, את היעדים ואת הדרך להגיע אליהם.",
+    target: "#planning",
+  },
+  {
+    num: "02",
+    title: "מלמדים",
+    subtitle: "שיעור, דף עבודה והערכה",
+    text: "בונים שיעור שתלמיד מתחיל יכול להיכנס אליו ולהצליח.",
+    target: "#teaching",
+  },
+  {
+    num: "03",
+    title: "מחברים",
+    subtitle: "משחוק, חוויה והפעלת תלמידים",
+    text: "יוצרים חוויית למידה פעילה שמעודדת הצלחה, התמדה וחיבור.",
+    target: "#engagement",
+  },
+];
+
+export function ThreeStage() {
+  return (
+    <section className="bg-white py-16 md:py-24">
+      <div className="mx-auto max-w-6xl px-4 md:px-6">
+        <Reveal>
+          <SectionHeading
+            title="שלושה שלבים לבניית לימוד גמרא איכותי"
+            subtitle="התהליך מתחיל בתכנון מערכתי, ממשיך בבניית הוראה מדויקת ומגיע לחוויית למידה שמפעילה את התלמידים."
+            center
+          />
+        </Reveal>
+
+        <div className="mt-12 grid gap-6 md:grid-cols-3">
+          {stages.map((s, i) => (
+            <Reveal key={s.num} delay={i * 100}>
+              <div className="flex h-full flex-col rounded-3xl border border-brand-border bg-sky-soft p-7 shadow-card">
+                <span className="font-serif text-4xl font-bold text-teal">
+                  {s.num}
+                </span>
+                <h3 className="mt-4 text-xl font-bold text-navy-deep">
+                  {s.title}
+                </h3>
+                <p className="mt-1 text-sm font-semibold text-teal">
+                  {s.subtitle}
+                </p>
+                <p className="mt-3 flex-1 leading-relaxed text-muted-foreground">
+                  {s.text}
+                </p>
+                <a
+                  href={s.target}
+                  className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-navy hover:text-navy-deep"
+                >
+                  לפרטים
+                  <ArrowLeft className="h-4 w-4" />
+                </a>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function DetailCard({ icon: Icon, label }: { icon: typeof Target; label: string }) {
+  return (
+    <div className="flex items-center gap-3 rounded-2xl border border-brand-border bg-white px-4 py-3.5">
+      <Icon className="h-5 w-5 shrink-0 text-teal" />
+      <span className="font-medium text-ink">{label}</span>
+    </div>
+  );
+}
+
+export function Planning() {
+  return (
+    <section id="planning" className="bg-sky-soft py-16 md:py-24">
+      <div className="mx-auto max-w-6xl px-4 md:px-6">
+        <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
+          <Reveal>
+            <SectionHeading
+              label="01 · מתכננים"
+              title="בונים מסלול לימוד שמתאים באמת לישיבה"
+            />
+            <p className="mt-5 leading-relaxed text-muted-foreground md:text-lg">
+              כל מוסד פוגש תלמידים בנקודת פתיחה אחרת, פועל במסגרת שעות שונה ורוצה
+              להגיע ליעדים משלו. תכנון איכותי מתחיל משיחה עם ההנהלה ועם רכז
+              המקצוע: איפה אנחנו נמצאים, לאן אנחנו רוצים להגיע ואילו צעדים יעזרו
+              לנו להתקדם בצורה מדורגת ומציאותית.
+            </p>
+          </Reveal>
+
+          <Reveal delay={120}>
+            <div className="grid gap-4 sm:grid-cols-2">
+              <DetailCard icon={Users} label="מיפוי רמת התלמידים" />
+              <DetailCard icon={Target} label="הגדרת יעדים" />
+              <DetailCard icon={Clock} label="חלוקת שעות ובחירת תכנים" />
+              <DetailCard icon={LineChart} label="בניית תהליך מעקב" />
+            </div>
+            <div className="mt-4">
+              <Accordion question="מה כולל תהליך המיפוי?">
+                <ul className="list-disc space-y-2 pr-5">
+                  <li>שיחת אבחון עם ההנהלה ורכז המקצוע.</li>
+                  <li>בדיקת רמת הפתיחה של התלמידים ומאפייני הכיתות.</li>
+                  <li>סקירת מסגרת השעות והתכנים הקיימים.</li>
+                  <li>זיהוי אתגרים מרכזיים והזדמנויות לשיפור.</li>
+                  <li>גיבוש המלצות ראשוניות ויעדים מדורגים.</li>
+                </ul>
+              </Accordion>
+            </div>
+          </Reveal>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export function Teaching() {
+  return (
+    <section id="teaching" className="bg-white py-16 md:py-24">
+      <div className="mx-auto max-w-6xl px-4 md:px-6">
+        <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
+          <Reveal>
+            <SectionHeading
+              label="02 · מלמדים"
+              title="מסתכלים על הסוגיה בעיניים של תלמיד מתחיל"
+            />
+            <p className="mt-5 leading-relaxed text-muted-foreground md:text-lg">
+              הוראת גמרא איכותית מתחילה בשאלה פשוטה: מה התלמיד רואה כשהוא פוגש את
+              הסוגיה בפעם הראשונה? מפרקים את הלימוד לחלקים ברורים ומאפשרים לתלמיד
+              להבין כל שלב לפני שעוברים לשלב הבא.
+            </p>
+          </Reveal>
+
+          <Reveal delay={120}>
+            <div className="grid gap-4 sm:grid-cols-2">
+              <DetailCard icon={SplitSquareVertical} label="פירוק הסוגיה" />
+              <DetailCard icon={Newspaper} label="אקטואליזציה" />
+              <DetailCard icon={FileText} label="דף עבודה מדורג" />
+              <DetailCard icon={CheckCircle2} label="הערכה מדויקת" />
+            </div>
+            <div className="mt-4">
+              <Accordion question="איך בונים שיעור מדורג?">
+                <ul className="list-disc space-y-2 pr-5">
+                  <li>פתיחה שמחברת את התלמיד לשאלה המרכזית של הסוגיה.</li>
+                  <li>חלוקת הטקסט לקטעים קצרים וברורים.</li>
+                  <li>שלבי הבנה הדרגתיים: מילים, מבנה ומשמעות.</li>
+                  <li>עבודה עצמית מודרכת בדף עבודה מדורג.</li>
+                  <li>סיכום והערכה שמאפשרים לתלמיד להרגיש הצלחה.</li>
+                </ul>
+              </Accordion>
+            </div>
+          </Reveal>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+const engagementCards = [
+  {
+    icon: Lightbulb,
+    title: "יוזמות, מבצעים ותוצרי תלמידים",
+    text: "מבצעי לימוד, תחרויות ידידותיות ותוצרים שהתלמידים יוצרים בעצמם — מעודדים מעורבות, גאווה ותחושת שייכות לעולם הגמרא.",
+  },
+  {
+    icon: Gamepad2,
+    title: "משחקים דיגיטליים מותאמים",
+    text: "כלים אינטראקטיביים שמתורגמים ישירות לתוכן הנלמד, מחזקים בקיאות ומיומנויות ומכניסים אנרגיה חיובית ללמידה.",
+  },
+];
+
+export function Engagement() {
+  return (
+    <section id="engagement" className="bg-sky-soft py-16 md:py-24">
+      <div className="mx-auto max-w-6xl px-4 md:px-6">
+        <Reveal>
+          <SectionHeading
+            label="03 · מחברים"
+            title="יוצרים חוויית למידה שמפעילה את התלמידים"
+          />
+          <p className="mt-5 max-w-3xl leading-relaxed text-muted-foreground md:text-lg">
+            לצד לימוד רציני ומעמיק, אפשר לשלב חוויות שמכניסות אנרגיה, מוטיבציה
+            ותחושת מסוגלות.
+          </p>
+        </Reveal>
+
+        <div className="mt-10 grid gap-6 md:grid-cols-2">
+          {engagementCards.map((c, i) => (
+            <Reveal key={c.title} delay={i * 120}>
+              <div className="h-full rounded-3xl border border-brand-border bg-white p-8 shadow-card transition-shadow hover:shadow-soft">
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-orange-soft text-orange">
+                  <c.icon className="h-6 w-6" />
+                </div>
+                <h3 className="mt-5 text-xl font-bold text-navy-deep">
+                  {c.title}
+                </h3>
+                <p className="mt-3 leading-relaxed text-muted-foreground">
+                  {c.text}
+                </p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
