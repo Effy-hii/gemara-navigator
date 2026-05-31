@@ -1,6 +1,8 @@
 import { ExternalLink, MessageCircle, Globe } from "lucide-react";
 import { Reveal, SectionHeading } from "./primitives";
 import { games, contact } from "@/lib/site-data";
+import toolHakodesh from "@/assets/tool-hakodesh.png";
+import toolPoteach from "@/assets/tool-poteach.png";
 
 export function GamesLibrary() {
   return (
@@ -88,11 +90,13 @@ const tools = [
     title: "פותח שערים",
     text: "אתר מקצועי בגמרא הכולל חומרי עזר וכלים למורים ולתלמידים.",
     link: "https://toshba.net/",
+    image: toolPoteach,
   },
   {
     title: "הקודש במרכז",
     text: "אתר מקצועי המרכז חומרי לימוד ותכנים בתחומי התושב״ע.",
     link: "https://hatene.net/disciplines",
+    image: toolHakodesh,
   },
 ];
 
@@ -111,7 +115,17 @@ export function Tools() {
         <div className="mt-12 grid gap-6 md:grid-cols-2">
           {tools.map((t, i) => (
             <Reveal key={t.title} delay={i * 120}>
-              <div className="flex h-full flex-col rounded-3xl border border-brand-border bg-white p-8 shadow-card">
+              <div className="group flex h-full flex-col overflow-hidden rounded-3xl border border-brand-border bg-white shadow-card transition-all hover:-translate-y-1 hover:shadow-soft">
+                <div className="relative h-44 overflow-hidden bg-sky">
+                  <img
+                    src={t.image}
+                    alt={t.title}
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy-deep/20 via-transparent to-transparent" />
+                </div>
+                <div className="flex flex-1 flex-col p-7">
                 <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-sky text-navy">
                   <Globe className="h-6 w-6" />
                 </div>
@@ -130,6 +144,7 @@ export function Tools() {
                   לביקור באתר
                   <ExternalLink className="h-4 w-4" />
                 </a>
+                </div>
               </div>
             </Reveal>
           ))}
