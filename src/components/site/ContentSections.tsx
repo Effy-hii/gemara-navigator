@@ -99,7 +99,7 @@ const stages = [
 
 export function ThreeStage() {
   return (
-    <section className="bg-white py-16 md:py-24">
+    <section className="bg-white py-10 md:py-24">
       <div className="mx-auto max-w-6xl px-4 md:px-6">
         <Reveal>
           <SectionHeading
@@ -109,25 +109,27 @@ export function ThreeStage() {
           />
         </Reveal>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
+        <div className="mt-6 grid gap-3 md:mt-12 md:gap-6 md:grid-cols-3">
           {stages.map((s, i) => (
             <Reveal key={s.num} delay={i * 100}>
-              <div className="flex h-full flex-col rounded-3xl border border-brand-border bg-sky-soft p-7 shadow-card">
-                <span className="font-serif text-4xl font-bold text-teal">
+              <div className="flex h-full items-start gap-4 rounded-2xl border border-brand-border bg-sky-soft p-4 shadow-card md:block md:rounded-3xl md:p-7">
+                <span className="font-serif text-2xl font-bold leading-none text-teal md:text-4xl">
                   {s.num}
                 </span>
-                <h3 className="mt-4 text-xl font-bold text-navy-deep">
-                  {s.title}
-                </h3>
-                <p className="mt-1 text-sm font-semibold text-teal">
-                  {s.subtitle}
-                </p>
-                <p className="mt-3 flex-1 leading-relaxed text-muted-foreground">
-                  {s.text}
-                </p>
+                <div className="min-w-0 flex-1">
+                  <h3 className="text-lg font-bold leading-tight text-navy-deep md:mt-4 md:text-xl">
+                    {s.title}
+                  </h3>
+                  <p className="mt-1 text-sm font-semibold text-teal">
+                    {s.subtitle}
+                  </p>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground md:mt-3 md:text-base">
+                    {s.text}
+                  </p>
+                </div>
                 <a
                   href={s.target}
-                  className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-navy hover:text-navy-deep"
+                  className="hidden shrink-0 items-center gap-1.5 text-sm font-semibold text-navy hover:text-navy-deep md:mt-5 md:inline-flex"
                 >
                   לפרטים
                   <ArrowLeft className="h-4 w-4" />
