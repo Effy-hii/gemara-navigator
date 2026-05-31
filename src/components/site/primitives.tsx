@@ -1,4 +1,4 @@
-import { useState, type ReactNode } from "react";
+import { useState, type ElementType, type ReactNode } from "react";
 import { ChevronDown } from "lucide-react";
 import { useReveal } from "@/hooks/use-reveal";
 
