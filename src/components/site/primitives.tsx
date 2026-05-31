@@ -10,7 +10,7 @@ export function Reveal({
 }: {
   children: ReactNode;
   className?: string;
-  as?: React.ElementType;
+  as?: ElementType;
   delay?: number;
 }) {
   const { ref, visible } = useReveal();
