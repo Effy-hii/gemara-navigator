@@ -32,28 +32,14 @@ jobs:
       - name: Install dependencies
         run: bun install --frozen-lockfile
 
-      - name: Build
-        run: bun run build
-        env:
-          GITHUB_PAGES: "true"
+      - name: Build static site
+        run: bunx vite build --config vite.pages.config.ts
 
       - name: Prepare static artifact
         shell: bash
         run: |
           set -euo pipefail
-          if [ -d ".output/public" ]; then
-            SITE_DIR=".output/public"
-          elif [ -d "dist" ]; then
-            SITE_DIR="dist"
-          elif [ -d "build/client" ]; then
-            SITE_DIR="build/client"
-          elif [ -d "dist/client" ]; then
-            SITE_DIR="dist/client"
-          else
-            echo "Could not find a static build output directory."
-            find . -maxdepth 3 -type d | sort
-            exit 1
-          fi
+          SITE_DIR="dist"
           cp "$SITE_DIR/index.html" "$SITE_DIR/404.html"
           touch "$SITE_DIR/.nojekyll"
           echo "SITE_DIR=$SITE_DIR" >> "$GITHUB_ENV"
