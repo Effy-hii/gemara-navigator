@@ -15,7 +15,6 @@ export function Reveal({
 }) {
   const { ref, visible } = useReveal();
   return (
-    // @ts-expect-error dynamic tag
     <Tag
       ref={ref}
       className={`reveal ${visible ? "is-visible" : ""} ${className}`}
