@@ -10,7 +10,7 @@ export function Reveal({
 }: {
   children: ReactNode;
   className?: string;
-  as?: keyof JSX.IntrinsicElements;
+  as?: React.ElementType;
   delay?: number;
 }) {
   const { ref, visible } = useReveal();
