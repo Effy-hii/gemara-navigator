@@ -28,7 +28,7 @@ export function Header() {
               alt="חוויה בלמידה — הרב אפרים שרם"
               className="h-10 w-10 rounded-lg object-contain"
             />
-            <span className="font-serif text-lg font-bold text-navy-deep whitespace-nowrap">
+            <span className="text-lg font-bold text-navy-deep whitespace-nowrap">
               {contact.name}
             </span>
           </a>

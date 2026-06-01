@@ -2,7 +2,7 @@
 @source "../src";
 @import "tw-animate-css";
 
-@import url("https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;500;600;700;800&family=Heebo:wght@300;400;500;600;700;800&family=Assistant:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&display=swap");
 
 @custom-variant dark (&:is(.dark *));
 
@@ -46,8 +46,7 @@
   --color-orange: var(--orange);
   --color-orange-soft: var(--orange-soft);
 
-  --font-serif: "Frank Ruhl Libre", "Noto Serif Hebrew", serif;
-  --font-sans: "Heebo", "Assistant", system-ui, sans-serif;
+  --font-sans: "Heebo", system-ui, sans-serif;
 }
 
 :root {
@@ -100,15 +99,18 @@
     scroll-padding-top: 5.5rem;
   }
 
-  body {
+  body,
+  button,
+  input,
+  textarea,
+  select {
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
-    overflow-x: hidden;
   }
 
-  h1, h2, h3 {
-    font-family: var(--font-serif);
+  body {
+    overflow-x: hidden;
   }
 
   :focus-visible {

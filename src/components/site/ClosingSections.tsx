@@ -227,7 +227,7 @@ export function Footer() {
               className="h-12 w-12 rounded-lg object-contain bg-white/95 p-1"
             />
             <div>
-              <p className="font-serif text-lg font-bold">{contact.name}</p>
+              <p className="text-lg font-bold">{contact.name}</p>
               <p className="text-sm text-sky/70">
                 ליווי, הדרכה ובניית חומרי למידה בהוראת גמרא
               </p>

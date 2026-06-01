@@ -76,7 +76,7 @@ export function ThreeStage() {
           {stages.map((s, i) => (
             <Reveal key={s.num} delay={i * 100}>
               <div className="flex h-full items-start gap-4 rounded-2xl border border-brand-border bg-sky-soft p-4 shadow-card md:block md:rounded-3xl md:p-7">
-                <span className="font-serif text-2xl font-bold leading-none text-teal md:text-4xl">
+                <span className="text-2xl font-bold leading-none text-teal md:text-4xl">
                   {s.num}
                 </span>
                 <div className="min-w-0 flex-1">
