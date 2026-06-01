@@ -157,15 +157,6 @@ export function About() {
               ))}
             </div>
 
-            <a
-              href={contact.whatsapp}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-8 inline-flex items-center justify-center gap-2 rounded-xl bg-orange px-6 py-3 text-base font-semibold text-white shadow-card transition-all hover:brightness-105"
-            >
-              <MessageCircle className="h-5 w-5" />
-              לתיאום שיחת היכרות
-            </a>
           </div>
         </Reveal>
       </div>
