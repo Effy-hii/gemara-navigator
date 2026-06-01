@@ -68,31 +68,10 @@ export function Services() {
                 <p className="mt-3 flex-1 leading-relaxed text-muted-foreground">
                   {s.text}
                 </p>
-                <a
-                  href={contact.whatsapp}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-6 inline-flex items-center justify-center gap-2 rounded-xl bg-navy px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-navy-deep"
-                >
-                  <MessageCircle className="h-4 w-4" />
-                  בואו נדבר על הצרכים שלכם
-                </a>
               </div>
             </Reveal>
           ))}
         </div>
-
-        <Reveal delay={120}>
-          <p className="mt-10 text-center text-base text-muted-foreground">
-            מעדיפים לדבר? התקשרו:{" "}
-            <a
-              href={contact.phoneLink}
-              className="font-semibold text-navy ltr-num hover:text-navy-deep"
-            >
-              {contact.phoneDisplay}
-            </a>
-          </p>
-        </Reveal>
       </div>
     </section>
   );
