@@ -1,3 +1,4 @@
+import { useState, type ReactNode } from "react";
 import {
   Users,
   Target,
@@ -9,6 +10,7 @@ import {
   CheckCircle2,
   ArrowLeft,
   ExternalLink,
+  X,
   Gamepad2,
   Lightbulb,
 } from "lucide-react";
@@ -106,11 +108,22 @@ export function ThreeStage() {
   );
 }
 
-function DetailCard({ icon: Icon, label }: { icon: typeof Target; label: string }) {
+function DetailCard({
+  icon: Icon,
+  label,
+  children,
+}: {
+  icon: typeof Target;
+  label: string;
+  children?: ReactNode;
+}) {
   return (
-    <div className="flex items-center gap-3 rounded-2xl border border-brand-border bg-white px-4 py-3.5">
-      <Icon className="h-5 w-5 shrink-0 text-teal" />
-      <span className="font-medium text-ink">{label}</span>
+    <div className="rounded-2xl border border-brand-border bg-white px-4 py-3.5">
+      <div className="flex items-center gap-3">
+        <Icon className="h-5 w-5 shrink-0 text-teal" />
+        <span className="font-medium text-ink">{label}</span>
+      </div>
+      {children ? <div className="mt-3">{children}</div> : null}
     </div>
   );
 }
@@ -168,6 +181,9 @@ export function Planning() {
 }
 
 export function Teaching() {
+  const [isWorksheetOpen, setIsWorksheetOpen] = useState(false);
+  const worksheetDemoUrl = `${import.meta.env.BASE_URL}worksheet-demo.pdf`;
+
   return (
     <section id="teaching" className="bg-white py-16 md:py-24">
       <div className="mx-auto max-w-6xl px-4 md:px-6">
@@ -188,7 +204,15 @@ export function Teaching() {
             <div className="grid gap-4 sm:grid-cols-2">
               <DetailCard icon={SplitSquareVertical} label="פירוק הסוגיה" />
               <DetailCard icon={Newspaper} label="אקטואליזציה" />
-              <DetailCard icon={FileText} label="דף עבודה מדורג" />
+              <DetailCard icon={FileText} label="דף עבודה מדורג">
+                <button
+                  type="button"
+                  onClick={() => setIsWorksheetOpen(true)}
+                  className="inline-flex w-full items-center justify-center rounded-xl bg-sky px-4 py-2 text-sm font-semibold text-navy transition-colors hover:bg-brand-border focus-visible:outline-teal"
+                >
+                  צפיה בדוגמא
+                </button>
+              </DetailCard>
               <DetailCard icon={CheckCircle2} label="הערכה מדויקת" />
             </div>
             <div className="mt-4">
@@ -205,6 +229,51 @@ export function Teaching() {
           </Reveal>
         </div>
       </div>
+      {isWorksheetOpen ? (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-navy-deep/70 p-3 md:p-6"
+          role="dialog"
+          aria-modal="true"
+          aria-label="צפיה בדוגמא לדף עבודה"
+        >
+          <div className="flex h-[92dvh] w-full max-w-5xl flex-col overflow-hidden rounded-2xl bg-white shadow-soft md:h-[88vh] md:rounded-3xl">
+            <div className="flex items-center justify-between gap-3 border-b border-brand-border px-4 py-3 md:px-5">
+              <div>
+                <h3 className="text-base font-bold text-navy-deep md:text-lg">
+                  דף עבודה מדורג לדוגמה
+                </h3>
+                <p className="text-xs text-muted-foreground md:text-sm">
+                  ניתן לגלול, להגדיל או לפתוח בלשונית חדשה.
+                </p>
+              </div>
+              <div className="flex shrink-0 items-center gap-2">
+                <a
+                  href={worksheetDemoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-brand-border text-navy transition-colors hover:bg-sky-soft"
+                  aria-label="פתיחה בלשונית חדשה"
+                >
+                  <ExternalLink className="h-4 w-4" />
+                </a>
+                <button
+                  type="button"
+                  onClick={() => setIsWorksheetOpen(false)}
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-navy text-white transition-colors hover:bg-navy-deep"
+                  aria-label="סגירת חלון"
+                >
+                  <X className="h-5 w-5" />
+                </button>
+              </div>
+            </div>
+            <iframe
+              src={worksheetDemoUrl}
+              title="דף עבודה מדורג לדוגמה"
+              className="min-h-0 flex-1 bg-sky-soft"
+            />
+          </div>
+        </div>
+      ) : null}
     </section>
   );
 }
