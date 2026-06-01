@@ -8,6 +8,7 @@ import {
   FileText,
   CheckCircle2,
   ArrowLeft,
+  ExternalLink,
   Gamepad2,
   Lightbulb,
 } from "lucide-react";
@@ -139,6 +140,15 @@ export function Planning() {
               <DetailCard icon={Clock} label="חלוקת שעות ובחירת תכנים" />
               <DetailCard icon={LineChart} label="בניית תהליך מעקב" />
             </div>
+            <a
+              href="https://sites.google.com/view/maptoshba/map1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-navy px-5 py-3.5 text-sm font-semibold text-white shadow-card transition-colors hover:bg-navy-deep"
+            >
+              למפת תכנון רב־שנתית
+              <ExternalLink className="h-4 w-4" />
+            </a>
             <div className="mt-4">
               <Accordion question="מה כולל תהליך המיפוי?">
                 <ul className="list-disc space-y-2 pr-5">
