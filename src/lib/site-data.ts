@@ -1,5 +1,6 @@
 import logo from "@/assets/logo.jpg";
 import heroStudents from "@/assets/hero-students.png";
+import gemaraTexture from "@/assets/gemara-texture.jpg";
 import gameDuel from "@/assets/game-duel.jpg";
 import gameEscape from "@/assets/game-escape.jpg";
 import gameMishnah from "@/assets/game-mishnah.jpg";
@@ -9,6 +10,7 @@ import gameRashi from "@/assets/game-rashi.png";
 export const brandAssets = {
   logo,
   heroImage: heroStudents,
+  heroTexture: gemaraTexture,
   profileImage: "",
 };
 
