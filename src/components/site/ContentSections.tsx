@@ -180,9 +180,36 @@ export function Planning() {
   );
 }
 
+type TeachingPreview = null | "worksheet" | "relevance1" | "relevance2";
+
 export function Teaching() {
-  const [isWorksheetOpen, setIsWorksheetOpen] = useState(false);
+  const [teachingPreview, setTeachingPreview] = useState<TeachingPreview>(null);
   const worksheetDemoUrl = `${import.meta.env.BASE_URL}worksheet-demo.pdf`;
+  const relevanceExample1Url = `${import.meta.env.BASE_URL}relevance-example-1.png`;
+  const relevanceExample2Url = `${import.meta.env.BASE_URL}relevance-example-2.png`;
+  const previewMeta =
+    teachingPreview === "worksheet"
+      ? {
+          title: "דף עבודה מדורג לדוגמה",
+          description: "ניתן לגלול, להגדיל או לפתוח בלשונית חדשה.",
+          url: worksheetDemoUrl,
+          kind: "pdf" as const,
+        }
+      : teachingPreview === "relevance1"
+        ? {
+            title: "רלוונטיות - דוגמא 1",
+            description: "דוגמה לחיבור הסוגיה לשאלה מוכרת מחיי התלמיד.",
+            url: relevanceExample1Url,
+            kind: "image" as const,
+          }
+        : teachingPreview === "relevance2"
+          ? {
+              title: "רלוונטיות - דוגמא 2",
+              description: "דוגמה נוספת לפתיחה שמחברת בין הסוגיה למציאות.",
+              url: relevanceExample2Url,
+              kind: "image" as const,
+            }
+          : null;
 
   return (
     <section id="teaching" className="bg-white py-16 md:py-24">
@@ -203,17 +230,34 @@ export function Teaching() {
           <Reveal delay={120}>
             <div className="grid gap-4 sm:grid-cols-2">
               <DetailCard icon={SplitSquareVertical} label="פירוק הסוגיה" />
-              <DetailCard icon={Newspaper} label="אקטואליזציה" />
+              <DetailCard icon={CheckCircle2} label="הערכה מדויקת" />
+              <DetailCard icon={Newspaper} label="רלוונטיות">
+                <div className="grid grid-cols-2 gap-2">
+                  <button
+                    type="button"
+                    onClick={() => setTeachingPreview("relevance1")}
+                    className="inline-flex min-h-9 items-center justify-center rounded-xl bg-sky px-3 py-2 text-sm font-semibold text-navy transition-colors hover:bg-brand-border focus-visible:outline-teal"
+                  >
+                    דוגמא 1
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setTeachingPreview("relevance2")}
+                    className="inline-flex min-h-9 items-center justify-center rounded-xl bg-sky px-3 py-2 text-sm font-semibold text-navy transition-colors hover:bg-brand-border focus-visible:outline-teal"
+                  >
+                    דוגמא 2
+                  </button>
+                </div>
+              </DetailCard>
               <DetailCard icon={FileText} label="דף עבודה מדורג">
                 <button
                   type="button"
-                  onClick={() => setIsWorksheetOpen(true)}
-                  className="inline-flex w-full items-center justify-center rounded-xl bg-sky px-4 py-2 text-sm font-semibold text-navy transition-colors hover:bg-brand-border focus-visible:outline-teal"
+                  onClick={() => setTeachingPreview("worksheet")}
+                  className="inline-flex min-h-9 w-full items-center justify-center rounded-xl bg-sky px-4 py-2 text-sm font-semibold text-navy transition-colors hover:bg-brand-border focus-visible:outline-teal"
                 >
                   צפיה בדוגמא
                 </button>
               </DetailCard>
-              <DetailCard icon={CheckCircle2} label="הערכה מדויקת" />
             </div>
             <div className="mt-4">
               <Accordion question="איך בונים שיעור מדורג?">
@@ -229,26 +273,26 @@ export function Teaching() {
           </Reveal>
         </div>
       </div>
-      {isWorksheetOpen ? (
+      {previewMeta ? (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-navy-deep/70 p-3 md:p-6"
           role="dialog"
           aria-modal="true"
-          aria-label="צפיה בדוגמא לדף עבודה"
+          aria-label={previewMeta.title}
         >
           <div className="flex h-[92dvh] w-full max-w-5xl flex-col overflow-hidden rounded-2xl bg-white shadow-soft md:h-[88vh] md:rounded-3xl">
             <div className="flex items-center justify-between gap-3 border-b border-brand-border px-4 py-3 md:px-5">
               <div>
                 <h3 className="text-base font-bold text-navy-deep md:text-lg">
-                  דף עבודה מדורג לדוגמה
+                  {previewMeta.title}
                 </h3>
                 <p className="text-xs text-muted-foreground md:text-sm">
-                  ניתן לגלול, להגדיל או לפתוח בלשונית חדשה.
+                  {previewMeta.description}
                 </p>
               </div>
               <div className="flex shrink-0 items-center gap-2">
                 <a
-                  href={worksheetDemoUrl}
+                  href={previewMeta.url}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-brand-border text-navy transition-colors hover:bg-sky-soft"
@@ -258,7 +302,7 @@ export function Teaching() {
                 </a>
                 <button
                   type="button"
-                  onClick={() => setIsWorksheetOpen(false)}
+                  onClick={() => setTeachingPreview(null)}
                   className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-navy text-white transition-colors hover:bg-navy-deep"
                   aria-label="סגירת חלון"
                 >
@@ -266,11 +310,21 @@ export function Teaching() {
                 </button>
               </div>
             </div>
-            <iframe
-              src={worksheetDemoUrl}
-              title="דף עבודה מדורג לדוגמה"
-              className="min-h-0 flex-1 bg-sky-soft"
-            />
+            {previewMeta.kind === "pdf" ? (
+              <iframe
+                src={previewMeta.url}
+                title={previewMeta.title}
+                className="min-h-0 flex-1 bg-sky-soft"
+              />
+            ) : (
+              <div className="min-h-0 flex-1 overflow-auto bg-sky-soft p-3 md:p-6">
+                <img
+                  src={previewMeta.url}
+                  alt={previewMeta.title}
+                  className="mx-auto h-auto max-h-full w-auto max-w-full rounded-xl bg-white shadow-card"
+                />
+              </div>
+            )}
           </div>
         </div>
       ) : null}
