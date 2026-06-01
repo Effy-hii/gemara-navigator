@@ -1,7 +1,4 @@
 import {
-  ListOrdered,
-  Layers,
-  PartyPopper,
   Users,
   Target,
   Clock,
@@ -15,24 +12,6 @@ import {
   Lightbulb,
 } from "lucide-react";
 import { Reveal, SectionHeading, Accordion } from "./primitives";
-
-const introCards = [
-  {
-    icon: ListOrdered,
-    title: "סדר",
-    text: "תוכנית ברורה, יעדים מדורגים והבנה מה נכון ללמד בכל שלב.",
-  },
-  {
-    icon: Layers,
-    title: "עומק",
-    text: "פירוק נכון של הסוגיה, דפי עבודה מדויקים והוראה שמכבדת את הטקסט ואת התלמיד.",
-  },
-  {
-    icon: PartyPopper,
-    title: "חוויה",
-    text: "מבצעים, יצירה, משחוק וכלים דיגיטליים שמעודדים חיבור ומוטיבציה.",
-  },
-];
 
 export function Intro() {
   return (
@@ -51,23 +30,6 @@ export function Intro() {
           </p>
         </Reveal>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
-          {introCards.map((c, i) => (
-            <Reveal key={c.title} delay={i * 100}>
-              <div className="h-full rounded-3xl border border-brand-border bg-white p-7 shadow-card transition-shadow hover:shadow-soft">
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-sky text-navy">
-                  <c.icon className="h-6 w-6" />
-                </div>
-                <h3 className="mt-5 text-xl font-bold text-navy-deep">
-                  {c.title}
-                </h3>
-                <p className="mt-3 leading-relaxed text-muted-foreground">
-                  {c.text}
-                </p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
       </div>
     </section>
   );
