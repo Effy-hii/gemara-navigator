@@ -10,6 +10,10 @@ import {
 } from "lucide-react";
 import { Reveal, SectionHeading } from "./primitives";
 import { contact, brandAssets } from "@/lib/site-data";
+import activityAiToshba from "@/assets/activity-ai-toshba.jpeg";
+import activityAvirYaakov from "@/assets/activity-avir-yaakov.jpeg";
+import activityOrotShaul from "@/assets/activity-orot-shaul.jpeg";
+import activityToshbaYesodi from "@/assets/activity-toshba-yesodi.jpeg";
 
 const services = [
   {
@@ -100,6 +104,25 @@ const aboutCards = [
   { icon: Sparkles, label: "הטמעה חינוכית של כלים דיגיטליים ובינה מלאכותית" },
 ];
 
+const activityHighlights = [
+  {
+    image: activityAvirYaakov,
+    title: "השתלמות בישיבה תיכונית אביר יעקב",
+  },
+  {
+    image: activityToshbaYesodi,
+    title: 'השתלמות למדריכי תושב"ע יסודי',
+  },
+  {
+    image: activityAiToshba,
+    title: 'השתלמות בינה מלאכותית בתושב"ע - ארצי',
+  },
+  {
+    image: activityOrotShaul,
+    title: "השתלמות לצוות ישיבת אורות שאול",
+  },
+];
+
 export function About() {
   return (
     <section id="about" className="bg-sky-soft py-16 md:py-24">
@@ -133,6 +156,25 @@ export function About() {
                   <c.icon className="h-6 w-6 text-teal" />
                   <span className="text-sm font-medium text-ink">{c.label}</span>
                 </div>
+              ))}
+            </div>
+
+            <div className="mt-8 grid gap-4 sm:grid-cols-2">
+              {activityHighlights.map((item) => (
+                <figure
+                  key={item.title}
+                  className="overflow-hidden rounded-2xl border border-brand-border bg-sky-soft"
+                >
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="h-44 w-full object-cover"
+                    loading="lazy"
+                  />
+                  <figcaption className="px-4 py-3 text-center text-sm font-semibold leading-relaxed text-navy-deep">
+                    {item.title}
+                  </figcaption>
+                </figure>
               ))}
             </div>
 
