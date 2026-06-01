@@ -116,14 +116,13 @@ export function Tools() {
           {tools.map((t, i) => (
             <Reveal key={t.title} delay={i * 120}>
               <div className="group flex h-full flex-col overflow-hidden rounded-3xl border border-brand-border bg-white shadow-card transition-all hover:-translate-y-1 hover:shadow-soft">
-                <div className="relative h-44 overflow-hidden bg-sky">
+                <div className="relative h-56 overflow-hidden bg-white px-3 py-4">
                   <img
                     src={t.image}
                     alt={t.title}
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-[1.02]"
                     loading="lazy"
                   />
-                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy-deep/20 via-transparent to-transparent" />
                 </div>
                 <div className="flex flex-1 flex-col p-7">
                 <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-sky text-navy">
