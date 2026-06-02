@@ -88,13 +88,13 @@ export function GamesLibrary() {
 const tools = [
   {
     title: "פותח שערים",
-    text: "אתר מקצועי בגמרא הכולל חומרי עזר וכלים למורים ולתלמידים.",
+    text: 'אתר מקצועי הכולל חומרי עזר לבגרות בתושב"ע ותלמוד',
     link: "https://toshba.net/",
     image: toolPoteach,
   },
   {
     title: "הקודש במרכז",
-    text: "אתר מקצועי המרכז חומרי לימוד ותכנים בתחומי התושב״ע.",
+    text: 'סביבת למידה הכוללת חומרי לימוד בתושב"ע לחטיבות הביניים',
     link: "https://hatene.net/disciplines",
     image: toolHakodesh,
   },
@@ -106,7 +106,7 @@ export function Tools() {
       <div className="mx-auto max-w-6xl px-4 md:px-6">
         <Reveal>
           <SectionHeading
-            title="כלים מקצועיים שפיתח הרב אפרים שרם"
+            title="סביבות למידה שכבר פותחו"
             subtitle="דוגמאות לאתרים ולכלים שמסייעים למורים ולתלמידים בעולם הגמרא והתושב״ע."
             center
           />
