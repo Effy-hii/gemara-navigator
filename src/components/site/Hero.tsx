@@ -22,8 +22,8 @@ export function Hero() {
       <div className="absolute inset-0 bg-navy-deep/82" />
       <div className="absolute inset-0 bg-gradient-to-b from-navy-deep/80 via-navy/70 to-navy-deep/95 md:bg-gradient-to-l md:from-navy-deep/82 md:via-navy/72 md:to-navy-deep/88" />
 
-      <div className="relative mx-auto grid max-w-6xl gap-10 px-4 md:px-6 lg:grid-cols-[0.92fr_1fr] lg:items-center">
-        <div className="text-center lg:text-right">
+      <div className="relative mx-auto grid max-w-6xl gap-10 px-4 md:px-6 lg:grid-cols-[0.92fr_1fr] lg:grid-rows-[auto_auto] lg:items-center">
+        <div className="text-center lg:col-start-1 lg:row-start-1 lg:text-right">
           <span className="inline-block rounded-full border border-white/25 bg-white/10 px-4 py-1.5 text-sm font-medium text-sky">
             ליווי והדרכה בהוראת גמרא
           </span>
@@ -54,7 +54,19 @@ export function Hero() {
               </div>
             ))}
           </div>
+        </div>
 
+        <div className="mx-auto w-full max-w-xl lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:max-w-none">
+          <div className="overflow-hidden rounded-2xl border border-white/20 bg-white/10 p-2 shadow-soft backdrop-blur-sm md:rounded-3xl md:p-3">
+            <img
+              src={brandAssets.heroImage}
+              alt="תלמידים לומדים גמרא בעזרת משחק דיגיטלי"
+              className="aspect-[16/10] w-full rounded-xl object-cover object-center md:rounded-2xl"
+            />
+          </div>
+        </div>
+
+        <div className="text-center lg:col-start-1 lg:row-start-2 lg:text-right">
           <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row lg:justify-start">
             <a
               href={contact.whatsapp}
@@ -77,16 +89,6 @@ export function Hero() {
           <p className="mt-6 text-sm text-sky/70">
             הרב אפרים שרם · ליווי והדרכה בהוראת גמרא
           </p>
-        </div>
-
-        <div className="mx-auto w-full max-w-xl lg:max-w-none">
-          <div className="overflow-hidden rounded-2xl border border-white/20 bg-white/10 p-2 shadow-soft backdrop-blur-sm md:rounded-3xl md:p-3">
-            <img
-              src={brandAssets.heroImage}
-              alt="תלמידים לומדים גמרא בעזרת משחק דיגיטלי"
-              className="aspect-[16/10] w-full rounded-xl object-cover object-center md:rounded-2xl"
-            />
-          </div>
         </div>
       </div>
     </section>

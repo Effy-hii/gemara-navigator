@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { Menu, X, MessageCircle } from "lucide-react";
-import { brandAssets, contact, navLinks } from "@/lib/site-data";
+import { Menu, X } from "lucide-react";
+import { brandAssets, navLinks } from "@/lib/site-data";
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -43,18 +43,6 @@ export function Header() {
             ))}
           </nav>
 
-          <div className="hidden lg:block shrink-0">
-            <a
-              href={contact.whatsapp}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-xl bg-navy px-4 py-2 text-sm font-semibold text-white transition-all hover:bg-navy-deep"
-            >
-              <MessageCircle className="h-4 w-4" />
-              לתיאום שיחת מיפוי
-            </a>
-          </div>
-
           {/* Mobile toggle */}
           <button
             type="button"
@@ -81,16 +69,6 @@ export function Header() {
                   {l.label}
                 </a>
               ))}
-              <a
-                href={contact.whatsapp}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => setOpen(false)}
-                className="mt-2 inline-flex items-center justify-center gap-2 rounded-xl bg-navy px-4 py-3 text-base font-semibold text-white"
-              >
-                <MessageCircle className="h-4 w-4" />
-                לתיאום שיחת מיפוי
-              </a>
             </div>
           </nav>
         )}
