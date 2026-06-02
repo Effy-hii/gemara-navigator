@@ -122,6 +122,19 @@ const activityHighlights = [
   },
 ];
 
+const testimonials = [
+  {
+    quote:
+      'הזמנו את הרב אפרים שרם לישיבת מדריכי תושב"ע על מנת להכיר יותר מקרוב בחידושים שהבינה המלאכותית מזמנת עבורנו בדגש על הכנת מצגות. המפגש הועבר באופן מדורג ומקצועי והשאיר את צוות ההדרכה עם רצון להעמיק, לחקור ולהפיק את המירב לטובת הוראה איכותית',
+    author: 'הרב אלקנה שטראוס - מדריך תושב"ע יסודי ארצי',
+  },
+  {
+    quote:
+      'תודה גדולה! השתלמות סופר חשובה! נתת המון כלים חשובים ויעילים! והסברת בצורה ברורה ובהירה, תודה רבה רבה! המשך לעשות חיל',
+    author: 'דוד, משתלם בקורס בינה מלאכותית בתושב"ע',
+  },
+];
+
 export function About() {
   return (
     <section id="about" className="bg-sky-soft py-16 md:py-24">
@@ -175,6 +188,27 @@ export function About() {
                   </figcaption>
                 </figure>
               ))}
+            </div>
+
+            <div className="mt-10">
+              <h3 className="text-center text-2xl font-bold text-navy-deep">
+                מה אומרים אחרי ההשתלמויות
+              </h3>
+              <div className="mt-5 grid gap-4 md:grid-cols-2">
+                {testimonials.map((item) => (
+                  <figure
+                    key={item.author}
+                    className="rounded-2xl border border-brand-border bg-white p-5 shadow-card"
+                  >
+                    <blockquote className="leading-relaxed text-muted-foreground">
+                      {item.quote}
+                    </blockquote>
+                    <figcaption className="mt-4 border-t border-brand-border pt-3 text-sm font-semibold text-navy-deep">
+                      {item.author}
+                    </figcaption>
+                  </figure>
+                ))}
+              </div>
             </div>
 
           </div>
