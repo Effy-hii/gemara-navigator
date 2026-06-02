@@ -200,7 +200,7 @@ export function About() {
                     key={item.author}
                     className="rounded-2xl border border-brand-border bg-white p-5 shadow-card"
                   >
-                    <blockquote className="leading-relaxed text-muted-foreground">
+                    <blockquote className="text-justify leading-relaxed text-muted-foreground">
                       {item.quote}
                     </blockquote>
                     <figcaption className="mt-4 border-t border-brand-border pt-3 text-sm font-semibold text-navy-deep">
