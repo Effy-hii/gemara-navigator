@@ -136,7 +136,7 @@ export function Planning() {
           <Reveal>
             <SectionHeading
               label="01 · מתכננים"
-              title="בונים מסלול לימוד שמתאים באמת לישיבה"
+              title="בונים מסלול לימוד שהכי מתאים לכם"
             />
             <p className="mt-5 leading-relaxed text-muted-foreground md:text-lg">
               כל מוסד פוגש תלמידים בנקודת פתיחה אחרת, פועל במסגרת שעות שונה ורוצה
