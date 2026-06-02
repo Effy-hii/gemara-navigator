@@ -31,7 +31,7 @@ export function Header() {
           </a>
 
           {/* Desktop nav */}
-          <nav className="hidden lg:flex items-center gap-1">
+          <nav className="hidden flex-1 items-center justify-center gap-1 lg:flex">
             {navLinks.map((l) => (
               <a
                 key={l.href}
@@ -58,13 +58,13 @@ export function Header() {
         {/* Mobile menu */}
         {open && (
           <nav className="lg:hidden border-t border-brand-border bg-white/95 backdrop-blur-md">
-            <div className="mx-auto flex max-w-6xl flex-col px-4 py-3">
+            <div className="mx-auto flex max-w-6xl flex-col items-center px-4 py-3 text-center">
               {navLinks.map((l) => (
                 <a
                   key={l.href}
                   href={l.href}
                   onClick={() => setOpen(false)}
-                  className="rounded-lg px-3 py-3 text-base font-medium text-ink/90 transition-colors hover:bg-sky-soft"
+                  className="w-full rounded-lg px-3 py-3 text-center text-base font-medium text-ink/90 transition-colors hover:bg-sky-soft"
                 >
                   {l.label}
                 </a>

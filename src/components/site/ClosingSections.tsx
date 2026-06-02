@@ -59,12 +59,14 @@ export function Services() {
                     {s.badge}
                   </span>
                 )}
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-sky text-navy">
-                  <s.icon className="h-6 w-6" />
+                <div className="flex items-center gap-4">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-sky text-navy">
+                    <s.icon className="h-6 w-6" />
+                  </div>
+                  <h3 className="text-xl font-bold text-navy-deep">
+                    {s.title}
+                  </h3>
                 </div>
-                <h3 className="mt-5 text-xl font-bold text-navy-deep">
-                  {s.title}
-                </h3>
                 <p className="mt-3 flex-1 leading-relaxed text-muted-foreground">
                   {s.text}
                 </p>
@@ -130,9 +132,9 @@ export function About() {
               {aboutCards.map((c) => (
                 <div
                   key={c.label}
-                  className="flex flex-col gap-3 rounded-2xl border border-brand-border bg-sky-soft p-5"
+                  className="flex items-center gap-3 rounded-2xl border border-brand-border bg-sky-soft p-5"
                 >
-                  <c.icon className="h-6 w-6 text-teal" />
+                  <c.icon className="h-6 w-6 shrink-0 text-teal" />
                   <span className="text-sm font-medium text-ink">{c.label}</span>
                 </div>
               ))}

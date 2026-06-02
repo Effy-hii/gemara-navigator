@@ -125,13 +125,15 @@ export function Tools() {
                   />
                 </div>
                 <div className="flex flex-1 flex-col p-7">
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-sky text-navy">
+                  <div className="flex items-center gap-4">
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-sky text-navy">
                   <Globe className="h-6 w-6" />
-                </div>
-                <h3 className="mt-5 text-xl font-bold text-navy-deep">
+                    </div>
+                    <h3 className="text-xl font-bold text-navy-deep">
                   {t.title}
-                </h3>
-                <p className="mt-3 flex-1 leading-relaxed text-muted-foreground">
+                    </h3>
+                  </div>
+                  <p className="mt-3 flex-1 leading-relaxed text-muted-foreground">
                   {t.text}
                 </p>
                 <a

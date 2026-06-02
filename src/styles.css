@@ -113,6 +113,11 @@
     overflow-x: hidden;
   }
 
+  section p:not(.text-center):not([class*="text-center"]),
+  footer p:not(.text-center):not([class*="text-center"]) {
+    text-align: justify;
+  }
+
   :focus-visible {
     outline: 2px solid var(--teal);
     outline-offset: 2px;

@@ -364,12 +364,14 @@ export function Engagement() {
           {engagementCards.map((c, i) => (
             <Reveal key={c.title} delay={i * 120}>
               <div className="h-full rounded-3xl border border-brand-border bg-white p-8 shadow-card transition-shadow hover:shadow-soft">
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-orange-soft text-orange">
-                  <c.icon className="h-6 w-6" />
+                <div className="flex items-center gap-4">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-orange-soft text-orange">
+                    <c.icon className="h-6 w-6" />
+                  </div>
+                  <h3 className="text-xl font-bold text-navy-deep">
+                    {c.title}
+                  </h3>
                 </div>
-                <h3 className="mt-5 text-xl font-bold text-navy-deep">
-                  {c.title}
-                </h3>
                 <p className="mt-3 leading-relaxed text-muted-foreground">
                   {c.text}
                 </p>
