@@ -159,7 +159,7 @@ export function Planning() {
               rel="noopener noreferrer"
               className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-navy px-5 py-3.5 text-sm font-semibold text-white shadow-card transition-colors hover:bg-navy-deep"
             >
-              למפת תכנון רב־שנתית
+              בונים מסלול לימוד שהכי מתאים לכם
               <ExternalLink className="h-4 w-4" />
             </a>
             <div className="mt-4">
