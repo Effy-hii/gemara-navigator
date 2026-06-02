@@ -198,9 +198,19 @@ export function FinalCTA() {
               התקשרו עכשיו
             </a>
           </div>
-          <p className="mt-6 text-sm text-sky/70">
-            הרב אפרים שרם ·{" "}
-            <span className="ltr-num">{contact.phoneDisplay}</span>
+          <div className="mt-8 flex flex-col items-center justify-center gap-3 text-sky/80 sm:flex-row">
+            <img
+              src={brandAssets.logo}
+              alt="חוויה בלמידה"
+              className="h-12 w-12 rounded-lg object-contain bg-white/95 p-1"
+            />
+            <p className="text-sm font-semibold">
+              {contact.name} ·{" "}
+              <span className="ltr-num">{contact.phoneDisplay}</span>
+            </p>
+          </div>
+          <p className="mt-5 text-center text-sm text-sky/65">
+            © {new Date().getFullYear()} {contact.name}. כל הזכויות שמורות.
           </p>
         </Reveal>
       </div>
@@ -209,48 +219,5 @@ export function FinalCTA() {
 }
 
 export function Footer() {
-  return (
-    <footer className="bg-navy-deep py-12 text-white">
-      <div className="mx-auto max-w-6xl px-4 md:px-6">
-        <div className="flex flex-col items-center gap-6 text-center md:flex-row md:justify-between md:text-right">
-          <div className="flex items-center gap-3">
-            <img
-              src={brandAssets.logo}
-              alt="חוויה בלמידה — הרב אפרים שרם"
-              className="h-12 w-12 rounded-lg object-contain bg-white/95 p-1"
-            />
-            <div>
-              <p className="text-lg font-bold">{contact.name}</p>
-              <p className="text-sm text-sky/70">
-                ליווי, הדרכה ובניית חומרי למידה בהוראת גמרא
-              </p>
-            </div>
-          </div>
-
-          <div className="flex flex-wrap items-center justify-center gap-3">
-            <a
-              href={contact.phoneLink}
-              className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-4 py-2.5 text-sm font-semibold transition-colors hover:bg-white/10"
-            >
-              <Phone className="h-4 w-4" />
-              <span className="ltr-num">{contact.phoneDisplay}</span>
-            </a>
-            <a
-              href={contact.whatsapp}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-xl bg-teal px-4 py-2.5 text-sm font-semibold transition-colors hover:brightness-110"
-            >
-              <MessageCircle className="h-4 w-4" />
-              וואטסאפ
-            </a>
-          </div>
-        </div>
-
-        <p className="mt-8 border-t border-white/10 pt-6 text-center text-sm text-sky/60">
-          © {new Date().getFullYear()} {contact.name}
-        </p>
-      </div>
-    </footer>
-  );
+  return null;
 }
