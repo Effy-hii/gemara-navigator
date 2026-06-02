@@ -46,7 +46,25 @@ export function Services() {
           />
         </Reveal>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
+        <Reveal delay={80}>
+          <div className="mx-auto mt-10 flex max-w-4xl flex-col gap-4 rounded-3xl border border-brand-border bg-sky-soft p-5 shadow-card sm:flex-row sm:items-start md:p-6">
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-white text-teal">
+              <Sparkles className="h-6 w-6" />
+            </div>
+            <div className="min-w-0 text-center sm:text-right">
+              <h3 className="text-xl font-bold text-navy-deep">
+                אופי העבודה
+              </h3>
+              <p className="mt-2 leading-relaxed text-muted-foreground">
+                בכל מסלול משלבים התנסות מעשית של הצוות: פירוק סוגיות, בניית
+                דפי עבודה, תכנון שיעורים ושימוש בכלים דיגיטליים, כדי שהלמידה
+                לא תישאר תאורטית אלא תהפוך לכלים מוכנים להוראה.
+              </p>
+            </div>
+          </div>
+        </Reveal>
+
+        <div className="mt-8 grid gap-6 md:grid-cols-3">
           {services.map((s, i) => (
             <Reveal key={s.title} delay={i * 100}>
               <div
